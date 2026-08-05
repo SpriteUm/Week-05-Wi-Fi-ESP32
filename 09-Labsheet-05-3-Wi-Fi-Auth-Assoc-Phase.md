@@ -311,33 +311,139 @@ void app_main(void) {
 ```
 
 ---
+### ผลรัน
+```
+I (662) LAB_AUTH_ASSOC: ==================================================================
+I (672) LAB_AUTH_ASSOC:   Lab 5.3: Wi-Fi Authentication & Association Phase (ESP-IDF Forensic)
+I (682) LAB_AUTH_ASSOC: ==================================================================
+I (682) LAB_AUTH_ASSOC: 
 
+I (692) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (702) LAB_AUTH_ASSOC: >>> Experiment 5.3.1: Link-Layer Auth & Assoc Phase Test
+I (702) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (712) LAB_AUTH_ASSOC:   Target SSID    : "น้องสไปร์ท"
+I (722) LAB_AUTH_ASSOC:   Target Password: "Mypassword"
+I (722) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_stop()
+I (732) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+W (732) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (762) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (772) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_start()
+I (772) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06
+I (852) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (872) wifi:mode : sta (88:57:21:ae:50:a0)
+I (872) wifi:enable tsf
+I (872) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (872) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (872) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (882) LAB_AUTH_ASSOC: [FORENSIC]: Initiating 802.11 Link-Layer Connection (Auth & Assoc)...
+I (892) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_connect()
+I (902) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (1242) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0
+I (1242) wifi:state: init -> auth (0xb0)
+I (1242) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (1292) wifi:state: auth -> assoc (0x0)
+I (1302) wifi:state: assoc -> run (0x10)
+I (1482) wifi:connected with น้องสไปร์ท, aid = 1, channel 6, BW20, bssid = 8e:5a:8b:a8:2c:07
+I (1482) wifi:security: WPA2-PSK, phy: bgn, rssi: -58, cipher(pairwise:0x3, group:0x3), pmf:0
+I (1502) wifi:pm start, type: 1
+
+I (1502) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1512) LAB_AUTH_ASSOC: =======================================================
+I (1512) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1522) LAB_AUTH_ASSOC:   [SUCCESS]: Phase 2 (Auth) & Phase 3 (Assoc) COMPLETED!
+I (1532) LAB_AUTH_ASSOC:   -> Connected SSID        : น้องสไปร์ท
+I (1532) LAB_AUTH_ASSOC:   -> BSSID (MAC Address)   : 8E:5A:8B:A8:2C:07
+I (1542) LAB_AUTH_ASSOC:   -> Channel               : 6
+I (1542) LAB_AUTH_ASSOC:   -> Auth Mode             : 3
+I (1552) LAB_AUTH_ASSOC:   -> Association ID (AID)  : 34680
+I (1552) LAB_AUTH_ASSOC: =======================================================
+I (1552) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (1572) LAB_AUTH_ASSOC: [RESULT]: TEST PASSED - Phase 2 (Auth) & Phase 3 (Assoc) Successful!
+I (3022) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (3582) LAB_AUTH_ASSOC: 
+
+I (3582) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (3582) LAB_AUTH_ASSOC: >>> Experiment 5.3.2: Link-Layer Test - Non-Existent AP
+I (3582) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (3592) LAB_AUTH_ASSOC:   Target SSID    : "NON_EXISTENT_AP_9999"
+I (3602) LAB_AUTH_ASSOC:   Target Password: "12345678"
+I (3602) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_stop()
+I (3612) wifi:state: run -> init (0x0)
+I (3622) wifi:pm stop, total sleep time: 1380255 us / 2112801 us
+
+W (3622) LAB_AUTH_ASSOC: =======================================================
+W (3622) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (3632) LAB_AUTH_ASSOC:   -> Target SSID          : น้องสไปร์ท
+W (3642) LAB_AUTH_ASSOC:   -> Reason Code (Decimal): 8
+W (3642) LAB_AUTH_ASSOC:   -> Reason Code (Hex)    : 0x08
+W (3652) LAB_AUTH_ASSOC:   -> Reason Diagnosis     : OTHER_DISCONNECT_REASON
+W (3652) LAB_AUTH_ASSOC: =======================================================
+I (3662) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (3672) wifi:flush txq
+I (3672) wifi:stop sw txq
+I (3672) wifi:lmac stop hw txq
+I (3672) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+W (3682) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (3712) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (3712) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_start()
+I (3722) wifi:mode : sta (88:57:21:ae:50:a0)
+I (3722) wifi:enable tsf
+I (3722) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (3732) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (3732) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (3742) LAB_AUTH_ASSOC: [FORENSIC]: Initiating 802.11 Link-Layer Connection (Auth & Assoc)...
+I (3752) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_connect()
+I (3762) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (3762) LAB_AUTH_ASSOC: [RESULT]: TEST FAILED - Disconnected event captured in Link-Layer.
+I (3772) LAB_AUTH_ASSOC: ==================================================================
+I (3782) LAB_AUTH_ASSOC:   [Phase 2 & Phase 3 Completed: Link-Layer Auth & Assoc Finished]
+I (3782) LAB_AUTH_ASSOC: ==================================================================
+I (3792) main_task: Returned from app_main()
+W (6172) LAB_AUTH_ASSOC: =======================================================
+W (6172) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (6172) LAB_AUTH_ASSOC:   -> Target SSID          : NON_EXISTENT_AP_9999
+W (6182) LAB_AUTH_ASSOC:   -> Reason Code (Decimal): 201
+W (6182) LAB_AUTH_ASSOC:   -> Reason Code (Hex)    : 0xC9
+W (6192) LAB_AUTH_ASSOC:   -> Reason Diagnosis     : WIFI_REASON_NO_AP_FOUND (201) [Phase 1: SSID Not Found]
+W (6202) LAB_AUTH_ASSOC: =======================================================
+
+```
 ## 6. ตารางบันทึกผลการทดลอง (Experiment Results)
 
 ให้นักศึกษาบันทึกผลลัพธ์จากการสังเกตใน Serial Console ลงในตารางต่อไปนี้:
 
 ### 6.1 ตารางสรุปเปรียบเทียบผลการทดลองในระดับ Link Layer
 
-| ข้อการทดลอง | สถานการณ์ทดสอบ | Event ที่ได้รับ | ผลการผูกสัมพันธ์ Link Layer | ค่า Association ID (AID) ที่ได้ | Reason Code (ถ้ามี) |
-| :---: | :--- | :---: | :---: | :---: | :--- |
-| **5.3.1** | ร้องขอ Auth & Assoc กับ AP มีอยู่จริง | | | | |
-| **5.3.2** | ร้องขอ Auth & Assoc กับ AP ไม่มีอยู่จริง | | | | |
-
+| ข้อการทดลอง | สถานการณ์ทดสอบ                           |       Event ที่ได้รับ       | ผลการผูกสัมพันธ์ Link Layer |   ค่า Association ID (AID) ที่ได้   | Reason Code (ถ้ามี)                    |
+| :---------: | :--------------------------------------- | :-------------------------: | :-------------------------: | :---------------------------------: | :------------------------------------- |
+|  **5.3.1**  | ร้องขอ Auth & Assoc กับ AP มีอยู่จริง    |  WIFI_EVENT_STA_CONNECTED   |       สำเร็จ (Passed)       | 34680 (จาก Log Logged AID / aid=1)* | -                                      |
+|  **5.3.2**  | ร้องขอ Auth & Assoc กับ AP ไม่มีอยู่จริง | WIFI_EVENT_STA_DISCONNECTED |      ล้มเหลว (Failed)       |                 N/A                 | 201 / 0xC9 (WIFI_REASON_NO_AP_FOUND)** |
 ### 6.2 บันทึกข้อมูล Link Layer จาก Event `WIFI_EVENT_STA_CONNECTED` (ข้อ 5.3.1)
 
-| พารามิเตอร์ Link Layer | ค่าที่อ่านได้จริงจาก Forensic Log |
-| :--- | :--- |
-| **SSID** | |
-| **BSSID (MAC Address)** | |
-| **Channel** | |
-| **Auth Mode Enum** | |
-| **Association ID (AID)** | |
+| พารามิเตอร์ Link Layer   | ค่าที่อ่านได้จริงจาก Forensic Log |
+| :----------------------- | :-------------------------------- |
+| **SSID**                 | น้องสไปร์ท                        |
+| **BSSID (MAC Address)**  | 8E:5A:8B:A8:2C:07                 |
+| **Channel**              | 6                                 |
+| **Auth Mode Enum**       | `3` _(WPA2-PSK)_                  |
+| **Association ID (AID)** | `34680` _(หรือ 1 จาก Driver Log)_ |
 
 ---
 
 ## 7. คำถามท้ายการทดลอง (Post-Lab Questions)
 
 1. **Association ID (AID)** คืออะไร มีบทบาทอย่างไรใน Phase 3 และส่งคืนมาในโครงสร้างข้อมูลตัวแปรใด?
+- **คืออะไร & บทบาท:** **AID** คือ หมายเลขอ้างอิงชั่วคราว (1–2007) ที่ Access Point (AP) กำหนดให้แก่ Station (ESP32) แต่ละตัวในระหว่างเฟส **Association (Phase 3)** เพื่อใช้ระบุตัวตนของ Station นั้นๆ บนตารางของ AP ใช้ในการจัดการคิวส่งข้อมูล (Data Buffering) และระบุว่ามีแพ็กเกจรอส่งอยู่ขณะอุปกรณ์อยู่ในโหมดประหยัดพลังงาน (Power Save / TIM Bitmap)
+- **ส่งคืนในตัวแปร:** ส่งคืนมาในโครงสร้าง **`wifi_event_sta_connected_t`** ผ่านสมาชิกตัวแปร **`aid`** (ซึ่งรับมาจาก `WIFI_EVENT_STA_CONNECTED`)
+
 2. เหตุใดการเชื่อมต่อ Wi-Fi ความปลอดภัยแบบ WPA2-PSK จึงสามารถผ่าน Phase 2 (Authentication) และ Phase 3 (Association) จนเกิด Event `WIFI_EVENT_STA_CONNECTED` ได้สำเร็จ แม้ผู้ใช้จะป้อนรหัสผ่าน (Password) ผิด?
+- **คำอธิบาย:** ในมาตรฐาน 802.11i / WPA2 เฟส 2 (Authentication) ใช้กลไก **Open System Authentication** ซึ่งเป็นเพียงการทักทายระดับฮาร์ดแวร์เบื้องต้น และเฟส 3 (Association) เป็นเพียงการตกลงพารามิเตอร์ของลิงก์ เช่น ช่องสัญญาณ และ Cipher Suites โดยที่ **ทั้งสองเฟสนี้ยังไม่มีกระบวนการตรวจสอบความถูกต้องของ Pre-Shared Key (Password) เลย**
+- การตรวจสอบ Password จะเกิดขึ้นหลังจากสร้าง Link-Layer สำเร็จแล้วเท่านั้น โดยจะเริ่มใน **Phase 4 (4-Way Handshake)** ดังนั้น การใส่ Password ผิดจึงทำให้อุปกรณ์ผ่าน Phase 2 และ 3 จนเกิด `WIFI_EVENT_STA_CONNECTED` ได้ตามปกติ ก่อนจะไปหลุดการเชื่อมต่อใน Phase 4
+
 3. หาก Router มีการตั้งค่า **MAC Address Filtering** (อนุญาตเฉพาะ MAC ที่ลงทะเบียน) ESP32 จะล้มเหลวในเฟสใด และจะส่ง Disconnect Reason Code ใดออกมา?
+- **เฟสที่ล้มเหลว:** Phase 2 (Auth) หรือ Phase 3 (Assoc)
+- **Reason Code:** **`11` (`WIFI_REASON_ASSOC_DENIED_NOT_AUTHD`)** หรือ **`1` (`WIFI_REASON_UNSPECIFIED`)** / **`6` (`WIFI_REASON_NOT_AUTHED`)**
+
 4. สรุปความแตกต่างสำคัญระหว่างจุดสิ้นสุดของ **Phase 3 (Link-Layer Connected)** กับจุดสิ้นสุดของ **Phase 5 (IP Address Assigned)**
+- **Phase 3 (Layer 2 - Data Link):** ต่อคลื่นวิทยุกับ AP สำเร็จและได้ AID แล้ว แต่ **ยังไม่มี IP จึงส่งข้อมูลอินเทอร์เน็ตไม่ได้**
+- **Phase 5 (Layer 3 - Network):** ผ่าน Handshake และ **ได้รับ IP Address จาก DHCP แล้ว** พร้อมรับ-ส่งข้อมูล TCP/IP, HTTP, MQTT ออกอินเทอร์เน็ตได้ทันที

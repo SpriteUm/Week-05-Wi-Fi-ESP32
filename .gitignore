@@ -1,1 +1,21 @@
 .obsidian/**
+
+# ESP-IDF build outputs
+**/build/
+
+# Local SDK config (ถ้าไม่ต้องการ commit)
+sdkconfig
+
+# Editor / OS files
+.vscode/
+.idea/
+*.log
+*.tmp
+*.swp
+*.user
+*.suo
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini

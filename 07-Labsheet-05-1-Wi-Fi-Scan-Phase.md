@@ -438,35 +438,163 @@ void app_main(void) {
 ```
 
 ---
+### ผลรัน
+```
+I (771) LAB_WIFI_SCAN: ==================================================================
+I (781) LAB_WIFI_SCAN:   Lab 5.1: Wi-Fi Connection and Scanning Phase (ESP-IDF Forensic)
+I (791) LAB_WIFI_SCAN: ==================================================================
+I (801) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (801) LAB_WIFI_SCAN: >>> Experiment 5.1.1: General AP Scan (All Channels)
+I (811) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (821) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (3331) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2499 ms]
+I (3331) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (3331) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=15
+I (3341) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (3341) LAB_WIFI_SCAN: [AP COUNT]: 15 network(s) found
+I (3351) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (3361) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=15
 
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | KMITL-Legacy             | 78:17:BE:C0:7D:A0 | -53  dBm | 1    | WPA2_ENTERPRISE     
+2    | KMITL-IoT                | 78:17:BE:C0:7D:A2 | -54  dBm | 1    | WPA2_PSK            
+3    | KMITL-WIFI               | 78:17:BE:C0:7D:A1 | -54  dBm | 1    | OPEN (No Password)  
+4    | Thanutorn                | D6:65:F4:32:83:9C | -54  dBm | 6    | WPA2_PSK            
+5    | <Hidden SSID>            | 9A:03:C3:1E:BE:E8 | -63  dBm | 6    | WPA2_PSK            
+6    | Zenny                    | A6:27:B2:9B:5C:04 | -67  dBm | 6    | WPA2_PSK            
+7    | patkorn_                 | 3E:FA:94:CE:AD:0F | -73  dBm | 6    | WPA2_PSK            
+8    | Snowfake                 | A2:FA:D0:08:08:0C | -74  dBm | 6    | WPA2_PSK            
+9    | I Bew                    | 4A:39:B6:6E:0A:29 | -74  dBm | 6    | WPA2_PSK            
+10   | Cs.WiFi                  | 4E:9D:3A:DC:4C:B6 | -76  dBm | 11   | WPA2_WPA3_PSK       
+11   | KMITL-WIFI               | 78:17:BE:C0:66:21 | -86  dBm | 1    | OPEN (No Password)  
+12   | KMITL-Legacy             | 78:17:BE:C0:66:20 | -87  dBm | 1    | WPA2_ENTERPRISE     
+13   | KMITL-WIFI               | 78:17:BE:C0:72:61 | -88  dBm | 11   | OPEN (No Password)  
+14   | dlink                    | C4:A8:1D:93:89:30 | -91  dBm | 11   | OPEN (No Password)  
+15   | KMITL-Legacy             | 78:17:BE:C0:72:60 | -91  dBm | 11   | WPA2_ENTERPRISE     
+--------------------------------------------------------------------------------------------------
+
+I (4521) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (4521) LAB_WIFI_SCAN: >>> Experiment 5.1.2: Channel-Specific Scan (Channel 1)
+I (4521) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (4531) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (4741) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 200 ms]
+I (4741) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (4741) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=6
+I (4751) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (4751) LAB_WIFI_SCAN: [AP COUNT]: 6 network(s) found
+I (4761) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (4771) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=6
+
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | KMITL-WIFI               | 78:17:BE:C0:7D:A1 | -53  dBm | 1    | OPEN (No Password)  
+2    | KMITL-Legacy             | 78:17:BE:C0:7D:A0 | -55  dBm | 1    | WPA2_ENTERPRISE     
+3    | KMITL-IoT                | 78:17:BE:C0:7D:A2 | -55  dBm | 1    | WPA2_PSK            
+4    | KMITL-Legacy             | 78:17:BE:C0:66:20 | -82  dBm | 1    | WPA2_ENTERPRISE     
+5    | KMITL-IoT                | 78:17:BE:C0:66:22 | -83  dBm | 1    | WPA2_PSK            
+6    | KMITL-WIFI               | 78:17:BE:C0:66:21 | -86  dBm | 1    | OPEN (No Password)  
+--------------------------------------------------------------------------------------------------
+
+I (5861) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (5861) LAB_WIFI_SCAN: >>> Experiment 5.1.3: Targeted SSID Scan - Existing ("KMITL-Legacy")
+I (5861) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (5871) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (8381) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2499 ms]
+I (8381) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (8381) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=4
+I (8391) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (8391) LAB_WIFI_SCAN: [AP COUNT]: 4 network(s) found
+I (8401) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (8411) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=4
+
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | KMITL-Legacy             | 78:17:BE:C0:7D:A0 | -58  dBm | 1    | WPA2_ENTERPRISE     
+2    | KMITL-Legacy             | 78:17:BE:A9:94:E0 | -72  dBm | 6    | WPA2_ENTERPRISE     
+3    | KMITL-Legacy             | 78:17:BE:C0:66:20 | -83  dBm | 1    | WPA2_ENTERPRISE     
+4    | KMITL-Legacy             | 78:17:BE:C0:72:60 | -87  dBm | 11   | WPA2_ENTERPRISE     
+--------------------------------------------------------------------------------------------------
+
+I (9481) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (9481) LAB_WIFI_SCAN: >>> Experiment 5.1.4: Targeted SSID Scan - Non-Existent ("NON_EXISTENT_AP_9999")
+I (9481) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (9491) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (12001) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2498 ms]
+I (12001) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (12001) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=0
+I (12011) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (12011) LAB_WIFI_SCAN: [AP COUNT]: 0 network(s) found
+W (12021) LAB_WIFI_SCAN: [NOTE]: No Access Point found matching the criteria.
+I (12021) LAB_WIFI_SCAN: ==================================================================
+I (12031) LAB_WIFI_SCAN:   [Phase 1 Completed: Wi-Fi Scan Finished]
+I (12041) LAB_WIFI_SCAN:   Program stopped after scanning. Auth/Assoc Phase not started.
+I (12051) LAB_WIFI_SCAN: ==================================================================
+I (12051) main_task: Returned from app_main()
+
+```
 ## 6. ตารางบันทึกผลการทดลอง (Experiment Results)
 
 ให้นักศึกษาบันทึกผลลัพธ์จากการสังเกตใน Serial Console ลงในตารางต่อไปนี้:
 
 ### 6.1 ตารางสรุปเปรียบเทียบการสแกนทั้ง 4 กรณี
 
-| ข้อการทดลอง | เงื่อนไขการสแกน | สถานะ (Success/Error Code) | จำนวน AP ที่พบ (เครือข่าย) | เวลาที่ใช้ในการสแกน (ms) |
-| :---: | :--- | :---: | :---: | :---: |
-| **5.1.1** | สแกนทั่วไปทุก Channel | | | |
-| **5.1.2** | กำหนดสแกนเฉพาะ Channel 1 | | | |
-| **5.1.3** | กำหนดสแกน SSID ที่มีจริง | | | |
-| **5.1.4** | กำหนดสแกน SSID ที่ไม่มีจริง | | | |
+| ข้อการทดลอง | เงื่อนไขการสแกน             | สถานะ (Success/Error Code) | จำนวน AP ที่พบ (เครือข่าย) | เวลาที่ใช้ในการสแกน (ms) |
+| :---------: | :-------------------------- | :------------------------: | :------------------------: | :----------------------: |
+|  **5.1.1**  | สแกนทั่วไปทุก Channel       |        Scan SUCCESS        |    15 network(s) found     |         2499 ms          |
+|  **5.1.2**  | กำหนดสแกนเฉพาะ Channel 1    |        Scan SUCCESS        |     6 network(s) found     |          200 ms          |
+|  **5.1.3**  | กำหนดสแกน SSID ที่มีจริง    |        Scan SUCCESS        |     4 network(s) found     |         2499 ms          |
+|  **5.1.4**  | กำหนดสแกน SSID ที่ไม่มีจริง |        Scan SUCCESS        |     0 network(s) found     |         2498 ms          |
 
 ### 6.2 ตารางรายละเอียด AP ที่พบจากการสแกนทั่วไป (ข้อ 5.1.1)
 
 | ลำดับ | ชื่อเครือข่าย (SSID) | MAC Address (BSSID) | ความแรงสัญญาณ (RSSI: dBm) | ช่องความถี่ (Channel) | ประเภทการเข้ารหัส (Encryption Type) |
-| :---: | :--- | :--- | :---: | :---: | :--- |
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| ----- | -------------------- | ------------------- | ------------------------- | --------------------- | ----------------------------------- |
+| 1     | KMITL-Legacy         | 78:17:BE:C0:7D:A0   | -53                       | 1                     | WPA2_ENTERPRISE                     |
+| 2     | KMITL-IoT            | 78:17:BE:C0:7D:A2   | -54                       | 1                     | WPA2_PSK                            |
+| 3     | KMITL-WIFI           | 78:17:BE:C0:7D:A1   | -54                       | 1                     | OPEN (No Password)                  |
+| 4     | Thanutorn            | D6:65:F4:32:83:9C   | -54                       | 6                     | WPA2_PSK                            |
+| 5     | <Hidden SSID>        | 9A:03:C3:1E:BE:E8   | -63                       | 6                     | WPA2_PSK                            |
+| 6     | Zenny                | A6:27:B2:9B:5C:04   | -67                       | 6                     | WPA2_PSK                            |
+| 7     | patkorn_             | 3E:FA:94:CE:AD:0F   | -73                       | 6                     | WPA2_PSK                            |
+| 8     | Snowfake             | A2:FA:D0:08:08:0C   | -74                       | 6                     | WPA2_PSK                            |
+| 9     | I Bew                | 4A:39:B6:6E:0A:29   | -74                       | 6                     | WPA2_PSK                            |
+| 10    | Cs.WiFi              | 4E:9D:3A:DC:4C:B6   | -76                       | 11                    | WPA2_WPA3_PSK                       |
+| 11    | KMITL-WIFI           | 78:17:BE:C0:66:21   | -86                       | 1                     | OPEN (No Password)                  |
+| 12    | KMITL-Legacy         | 78:17:BE:C0:66:20   | -87                       | 1                     | WPA2_ENTERPRISE                     |
+| 13    | KMITL-WIFI           | 78:17:BE:C0:72:61   | -88                       | 11                    | OPEN (No Password)                  |
+| 14    | dlink                | C4:A8:1D:93:89:30   | -91                       | 11                    | OPEN (No Password)                  |
+| 15    | KMITL-Legacy         | 78:17:BE:C0:72:60   | -91                       | 11                    | WPA2_ENTERPRISE                     |
 
 ---
 
 ## 7. คำถามท้ายการทดลอง (Post-Lab Questions)
 
 1. การกำหนดค่าในโครงสร้าง `wifi_scan_config_t` สำหรับสแกนเจาะจงเฉพาะช่องความถี่ (ข้อ 5.1.2) ช่วยลดเวลาในการสแกนเมื่อเทียบกับการสแกนทุกช่องความถี่ (ข้อ 5.1.1) อย่างไร และมีข้อจำกัดอย่างไร?
+	**ลดเวลาการสแกน**
+	- Full Scan (channel=0): 2-5 วินาที สแกน 13 ช่อง
+	- Specific Scan (channel=6): 0.5-1 วินาที สแกน 1 ช่อง เร็ว 70-80%
+	**ข้อจำกัด**
+	- ถ้า AP ไม่อยู่ช่องนั้น จะหาไม่เจอ
+	- ต้องรู้ channel ล่วงหน้า
+	- ต้องพิจารณา Region (US/EU/JP ใช้ช่องต่างกัน)
+
 2. เมื่อสังเกตผล Forensic Log ในข้อ 5.1.4 (สแกนหา SSID ที่ไม่มีอยู่จริง) ฟังก์ชัน `esp_wifi_scan_start()`, `esp_wifi_scan_get_ap_num()` และ `esp_wifi_scan_get_ap_records()` ส่งคืนค่าอย่างไร?
+	- `esp_wifi_scan_start()`  **ESP_OK**
+	- `esp_wifi_scan_get_ap_num()`  **ap_count = 0, ESP_OK**
+	- `esp_wifi_scan_get_ap_records()`  **ap_count = 0, ESP_OK** ((ไม่มี record)
+
 3. ค่าระดับความแรงสัญญาณ (RSSI) ที่แสดงเป็นตัวเลขติดลบ (เช่น -45 dBm กับ -80 dBm) ค่าใดแสดงถึงสัญญาณที่มีความแรงและความเสถียรมากกว่ากัน?
+	**45 dBm แรงกว่า** 
+	- ยิ่งลบน้อย ยิ่งสัญญาณแรง (-45 > -80)
+	- -45 dBm: แรง  ความเสถียรสูง (HD Video ได้)
+	- -80 dBm: ออน  ความเสถียรต่ำ (สัญญาณตัด)
+
 4. เหตุใดการดึงค่า `authmode` (`wifi_auth_mode_t`) จากโครงสร้าง `wifi_ap_record_t` จึงมีความสำคัญต่อการเตรียมการในเฟสถัดไป (Authentication & Association Phase)?
+	- `authmode` บอกประเภท security (0=OPEN, 3=WPA2_PSK เป็นต้น)
+	- **Phase 2**: ต้องใช้ security ที่ถูกต้อง
+	- **Phase 3**: ต้องทำ 4-Way Handshake ถูกวิธี
+	- ถ้า authmode ไม่ตรง  Handshake Fail 

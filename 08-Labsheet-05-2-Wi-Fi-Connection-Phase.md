@@ -359,35 +359,168 @@ void app_main(void) {
 ```
 
 ---
+### ผลรัน
+```
+I (672) LAB_WIFI_CONN: ==================================================================
+I (682) LAB_WIFI_CONN:   Lab 5.2: Wi-Fi Connection & IP Assignment (ESP-IDF Forensic)
+I (682) LAB_WIFI_CONN: ==================================================================
+I (692) LAB_WIFI_CONN: 
 
+I (692) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (702) LAB_WIFI_CONN: >>> Experiment 5.2.1: Connection Test - Correct Credentials
+I (712) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (722) LAB_WIFI_CONN:   Target SSID: "น้องสไปร์ท"
+I (722) LAB_WIFI_CONN:   Target Password: "Mypassword"
+I (732) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (732) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (742) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (752) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (752) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06
+I (842) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (862) wifi:mode : sta (88:57:21:ae:50:a0)
+I (862) wifi:enable tsf
+I (862) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (862) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (862) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (872) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (882) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (1802) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0
+I (1802) wifi:state: init -> auth (0xb0)
+I (1812) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (1812) wifi:state: auth -> assoc (0x0)
+I (1822) wifi:state: assoc -> run (0x10)
+I (1922) wifi:connected with น้องสไปร์ท, aid = 1, channel 6, BW20, bssid = 36:32:b5:1a:c5:14
+I (1922) wifi:security: WPA2-PSK, phy: bgn, rssi: -52, cipher(pairwise:0x3, group:0x3), pmf:0
+I (1942) wifi:pm start, type: 1
+
+I (1942) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1952) LAB_WIFI_CONN: =======================================================
+I (1952) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1962) LAB_WIFI_CONN:   -> Connected to SSID : น้องสไปร์ท
+I (1962) LAB_WIFI_CONN:   -> BSSID            : 36:32:B5:1A:C5:14
+I (1972) LAB_WIFI_CONN:   -> Channel          : 6
+I (1972) LAB_WIFI_CONN:   -> Auth Mode        : 3
+I (1982) LAB_WIFI_CONN: =======================================================
+I (2132) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (3172) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (3172) LAB_WIFI_CONN: =======================================================
+I (3172) LAB_WIFI_CONN: [EVENT FORENSIC]: IP_EVENT_STA_GOT_IP received!
+I (3182) LAB_WIFI_CONN:   -> IP Address : 172.20.10.2
+I (3182) LAB_WIFI_CONN:   -> Netmask    : 255.255.255.240
+I (3192) LAB_WIFI_CONN:   -> Gateway    : 172.20.10.1
+I (3192) LAB_WIFI_CONN: =======================================================
+I (3202) LAB_WIFI_CONN: [RESULT]: TEST PASSED - Connected to AP successfully!
+I (5202) LAB_WIFI_CONN: 
+
+I (5202) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (5202) LAB_WIFI_CONN: >>> Experiment 5.2.2: Connection Test - Wrong SSID (No AP Found)
+I (5202) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (5212) LAB_WIFI_CONN:   Target SSID: "NON_EXISTENT_SSID_9999"
+I (5222) LAB_WIFI_CONN:   Target Password: "12345678"
+I (5222) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (5232) wifi:state: run -> init (0x0)
+I (5242) wifi:pm stop, total sleep time: 2496111 us / 3295038 us
+
+W (5242) LAB_WIFI_CONN: =======================================================
+W (5242) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (5252) LAB_WIFI_CONN:   -> Target SSID          : น้องสไปร์ท
+W (5262) LAB_WIFI_CONN:   -> Reason Code (Decimal): 8
+W (5262) LAB_WIFI_CONN:   -> Reason Code (Hex)    : 0x08
+W (5272) LAB_WIFI_CONN:   -> Reason Description   : OTHER_DISCONNECT_REASON
+W (5272) LAB_WIFI_CONN: =======================================================
+I (5282) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (5292) wifi:flush txq
+I (5292) wifi:stop sw txq
+I (5292) wifi:lmac stop hw txq
+I (5292) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (5322) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (5322) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (5332) wifi:mode : sta (88:57:21:ae:50:a0)
+I (5332) wifi:enable tsf
+I (5332) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (5342) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (5342) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (5352) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (5362) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (5362) LAB_WIFI_CONN: [RESULT]: TEST FAILED - Disconnected event captured.
+I (7372) LAB_WIFI_CONN: 
+
+I (7372) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (7372) LAB_WIFI_CONN: >>> Experiment 5.2.3: Connection Test - Wrong Password (Auth/Handshake Fail)
+I (7372) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (7382) LAB_WIFI_CONN:   Target SSID: "น้องสไปร์ท"
+I (7392) LAB_WIFI_CONN:   Target Password: "WRONG_PASS_9999"
+I (7392) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (7402) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (7402) wifi:flush txq
+I (7412) wifi:stop sw txq
+I (7412) wifi:lmac stop hw txq
+I (7412) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (7462) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (7462) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (7462) wifi:mode : sta (88:57:21:ae:50:a0)
+I (7462) wifi:enable tsf
+I (7472) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (7472) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (7482) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (7472) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (7762) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0
+I (7762) wifi:state: init -> auth (0xb0)
+I (7772) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (7772) wifi:state: auth -> assoc (0x0)
+I (7782) wifi:state: assoc -> run (0x10)
+I (7832) wifi:state: run -> init (0x2c0)
+W (7902) LAB_WIFI_CONN: =======================================================
+W (7902) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (7902) LAB_WIFI_CONN:   -> Target SSID          : น้องสไปร์ท
+W (7912) LAB_WIFI_CONN:   -> Reason Code (Decimal): 2
+W (7912) LAB_WIFI_CONN:   -> Reason Code (Hex)    : 0x02
+W (7922) LAB_WIFI_CONN:   -> Reason Description   : WIFI_REASON_AUTH_EXPIRE (2)
+W (7932) LAB_WIFI_CONN: =======================================================
+W (7932) LAB_WIFI_CONN: [RESULT]: TEST FAILED - Disconnected event captured.
+I (7942) LAB_WIFI_CONN: ==================================================================
+I (7952) LAB_WIFI_CONN:   [Phase 2/3/4/5 Completed: Wi-Fi Connection Lab Finished]
+I (7962) LAB_WIFI_CONN: ==================================================================
+I (7962) main_task: Returned from app_main()
+```
 ## 6. ตารางบันทึกผลการทดลอง (Experiment Results)
 
 ให้นักศึกษาบันทึกผลลัพธ์จากการสังเกตใน Serial Console ลงในตารางต่อไปนี้:
 
 ### 6.1 ตารางสรุปเปรียบเทียบผลการทดลองทั้ง 3 สถานการณ์
 
-| ข้อการทดลอง | สถานการณ์ทดสอบ | Event สุดท้ายที่ได้รับ | ผลลัพธ์ (Passed/Failed) | Reason Code (Decimal / Hex) | คำอธิบาย Reason Code |
-| :---: | :--- | :---: | :---: | :---: | :--- |
-| **5.2.1** | SSID และ Password ถูกต้อง | | | | |
-| **5.2.2** | ระบุ SSID ผิด (ไม่มีในระบบ) | | | | |
-| **5.2.3** | ระบุ SSID ถูกต้อง แต่ Password ผิด | | | | |
-
+| ข้อการทดลอง | สถานการณ์ทดสอบ                     | Event สุดท้ายที่ได้รับ      | ผลลัพธ์ (Passed/Failed) | Reason Code (Decimal / Hex) | คำอธิบาย Reason Code                                    |
+| ----------- | ---------------------------------- | --------------------------- | ----------------------- | --------------------------- | ------------------------------------------------------- |
+| 5.2.1       | SSID และ Password ถูกต้อง          | IP_EVENT_STA_GOT_IP         | Passed                  | -                           | Connected successfully (เชื่อมต่อและได้รับ IP สำเร็จ)   |
+| 5.2.2       | ระบุ SSID ผิด (ไม่มีในระบบ)        | WIFI_EVENT_STA_DISCONNECTED | Failed                  | 201 / 0xC9                  | WIFI_REASON_NO_AP_FOUND (สแกนหา AP ไม่พบ)*              |
+| 5.2.3       | ระบุ SSID ถูกต้อง แต่ Password ผิด | WIFI_EVENT_STA_DISCONNECTED | Failed                  | 2 / 0x02                    | WIFI_REASON_AUTH_EXPIRE (การยืนยันตัวตนล้มเหลว/หมดเวลา) |
 ### 6.2 บันทึกข้อมูลเครือข่ายจากการเชื่อมต่อสำเร็จ (ข้อ 5.2.1)
 
-| พารามิเตอร์เครือข่าย | ค่าที่ได้รับจริงจาก DHCP |
-| :--- | :--- |
-| **SSID** | |
-| **BSSID (MAC Address)** | |
-| **Channel** | |
-| **IP Address** | |
-| **Subnet Mask** | |
-| **Default Gateway** | |
+| พารามิเตอร์เครือข่าย    | ค่าที่ได้รับจริงจาก DHCP |
+| :---------------------- | :----------------------- |
+| **SSID**                | น้องสไปร์ท               |
+| **BSSID (MAC Address)** | `36:32:B5:1A:C5:14`      |
+| **Channel**             | `6`                      |
+| **IP Address**          | 172.20.10.2              |
+| **Subnet Mask**         | `255.255.255.240`        |
+| **Default Gateway**     | `172.20.10.1`x`          |
 
 ---
 
 ## 7. คำถามท้ายการทดลอง (Post-Lab Questions)
 
 1. เหตุใดการระบุ SSID ผิด (ข้อ 5.2.2) จึงส่งผลให้เกิด Disconnect Event ด้วย Reason Code `201` (`WIFI_REASON_NO_AP_FOUND`) ตั้งแต่เฟส Scan?
+ตอบ: ESP32 จะสแกนหา SSID ทุกช่องสัญญาณก่อน หากสแกนจบแล้ว **ไม่พบ SSID ตรงกับที่ตั้งไว้** จะตัดจบกระบวนการทันทีโดยไม่ส่งเฟรมขอเชื่อมต่อออกไป จึงเกิด Disconnect ด้วย `WIFI_REASON_NO_AP_FOUND` (201) ตั้งแต่ขั้นตอนนี้
+
 2. เหตุใดการพิมพ์ Password ผิด (ข้อ 5.2.3) จึงผ่านเฟส Auth และ Assoc มาได้ แต่มาล้มเหลวในเฟส 4-Way Handshake (Reason Code `15` หรือ `204`)?
+**ตอบ:** เฟส Auth และ Assoc เป็นการตกลงพารามิเตอร์ลิงก์เบื้องต้น (ยังไม่ตรวจรหัสผ่าน) แต่รหัสผ่านจะถูกนำมาคำนวณค่า **PMK/PTK และตรวจ MIC** ในเฟส **4-Way Handshake** เมื่อรหัสผ่านผิด การยืนยันตัวตนจึงล้มเหลวและหมดเวลา (Timeout) จนหลุดด้วย Reason 2 (หรือ 15/204)
+
 3. ลำดับการเกิด Event ระหว่าง **`WIFI_EVENT_STA_CONNECTED`** กับ **`IP_EVENT_STA_GOT_IP`** Event ใดเกิดขึ้นก่อนกัน และมีความหมายทางกายภาพของ Layer Network ต่างกันอย่างไร?
-4. สมาชิกตัวแปร `reason` ในโครงสร้าง `wifi_event_sta_disconnected_t` มีประโยชน์อย่างไรต่อการออกแบบระบบค้นหาสาเหตุและกู้คืนการเชื่อมต่อ (Auto-Reconnection Mechanism) ในแอปพลิเคชัน IoT?
+**ตอบ:** **`WIFI_EVENT_STA_CONNECTED` เกิดก่อน `IP_EVENT_STA_GOT_IP`**
+- **WIFI_EVENT_STA_CONNECTED (Layer 2 - Data Link):** จับคู่คลื่นวิทยุกับ AP สำเร็จ ล็อก Channel/BSSID ได้แล้ว แต่ยังส่งข้อมูลอินเทอร์เน็ตไม่ได้
+- **IP_EVENT_STA_GOT_IP (Layer 3 - Network):** ขอและได้รับ IP Address จาก DHCP Server เรียบร้อยแล้ว พร้อมส่งข้อมูลระดับ TCP/IP (HTTP, MQTT) ได้ทันที
+
+3. สมาชิกตัวแปร `reason` ในโครงสร้าง `wifi_event_sta_disconnected_t` มีประโยชน์อย่างไรต่อการออกแบบระบบค้นหาสาเหตุและกู้คืนการเชื่อมต่อ (Auto-Reconnection Mechanism) ในแอปพลิเคชัน IoT?
+**ตอบ:** ช่วยให้เขียนเงื่อนไขจัดการความผิดพลาดได้ถูกต้อง เช่น:
+- **หากเป็นปัญหาชั่วคราว** (เช่น 201/200 AP สัญญาณหลุด): สั่ง Retry ใหม่เป็นระยะแบบชะลอเวลา (Exponential Backoff)
+- **หากเป็นการตั้งค่าผิด** (เช่น 2/15/204 Password ผิด): สั่งหยุด Retry ทันที แล้วสลับเข้า AP Mode/SmartConfig เพื่อให้ผู้ใช้ตั้งค่า WiFi ใหม่ ไม่ต้องเสียเวลา Retry วนซ้ำเปล่าๆ

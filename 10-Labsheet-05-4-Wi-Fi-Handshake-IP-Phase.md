@@ -321,31 +321,144 @@ void app_main(void) {
 ```
 
 ---
+### ผลรัน
+```
+ (673) LAB_HANDSHAKE_IP: ==================================================================
+I (683) LAB_HANDSHAKE_IP:   Lab 5.4: 4-Way Handshake & IP Assignment Phase (ESP-IDF Forensic)
+I (693) LAB_HANDSHAKE_IP: ==================================================================
+I (693) LAB_HANDSHAKE_IP: 
 
+I (703) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (703) LAB_HANDSHAKE_IP: >>> Experiment 5.4.1: Handshake & IP Test - Correct Password
+I (713) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (723) LAB_HANDSHAKE_IP:   Target SSID    : "น้องสไปร์ท"
+I (733) LAB_HANDSHAKE_IP:   Target Password: "Mypassword"
+I (733) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_stop()
+I (743) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (773) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (773) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_start()
+I (773) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06
+I (863) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (883) wifi:mode : sta (88:57:21:ae:50:a0)
+I (883) wifi:enable tsf
+I (883) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (883) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (883) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (893) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_connect()
+I (903) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (1233) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0
+I (1233) wifi:state: init -> auth (0xb0)
+I (1243) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (1353) wifi:state: auth -> assoc (0x0)
+I (1363) wifi:state: assoc -> run (0x10)
+I (1523) wifi:connected with น้องสไปร์ท, aid = 1, channel 6, BW20, bssid = c2:11:8a:af:fe:8a
+I (1523) wifi:security: WPA2-PSK, phy: bgn, rssi: -23, cipher(pairwise:0x3, group:0x3), pmf:0
+I (1543) wifi:pm start, type: 1
+
+I (1543) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1543) LAB_HANDSHAKE_IP: =======================================================
+I (1553) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1553) LAB_HANDSHAKE_IP:   -> Phase 2 (Auth) & Phase 3 (Assoc) PASSED
+I (1563) LAB_HANDSHAKE_IP:   -> Connected SSID  : น้องสไปร์ท
+I (1573) LAB_HANDSHAKE_IP:   -> BSSID           : C2:11:8A:AF:FE:8A
+I (1573) LAB_HANDSHAKE_IP:   -> Channel         : 6
+I (1583) LAB_HANDSHAKE_IP:   -> Association ID  : 34680
+I (1583) LAB_HANDSHAKE_IP: [FORENSIC]: Entering Phase 4: 4-Way EAPOL Key Exchange...
+I (1593) LAB_HANDSHAKE_IP: =======================================================
+I (1593) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (3053) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (3053) LAB_HANDSHAKE_IP: =======================================================
+I (3053) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: IP_EVENT_STA_GOT_IP received!
+I (3063) LAB_HANDSHAKE_IP:   [SUCCESS]: Phase 4 (4-Way Handshake) & Phase 5 (DHCP IP) COMPLETED!
+I (3073) LAB_HANDSHAKE_IP:   -> Allocated IP Address : 172.20.10.2
+I (3073) LAB_HANDSHAKE_IP:   -> Subnet Mask          : 255.255.255.240
+I (3083) LAB_HANDSHAKE_IP:   -> Default Gateway      : 172.20.10.1
+I (3083) LAB_HANDSHAKE_IP: =======================================================
+I (3093) LAB_HANDSHAKE_IP: [RESULT]: TEST PASSED - 4-Way Handshake & DHCP IP Assignment Successful!
+I (5103) LAB_HANDSHAKE_IP: 
+
+I (5103) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (5103) LAB_HANDSHAKE_IP: >>> Experiment 5.4.2: Handshake Test - Incorrect Password
+I (5103) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (5113) LAB_HANDSHAKE_IP:   Target SSID    : "น้องสไปร์ท"
+I (5123) LAB_HANDSHAKE_IP:   Target Password: "WRONG_PASSWORD_1234"
+I (5123) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_stop()
+I (5133) wifi:state: run -> init (0x0)
+I (5143) wifi:pm stop, total sleep time: 2831139 us / 3597577 us
+
+W (5143) LAB_HANDSHAKE_IP: =======================================================
+W (5153) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (5153) LAB_HANDSHAKE_IP:   -> Target SSID          : น้องสไปร์ท
+W (5163) LAB_HANDSHAKE_IP:   -> Reason Code (Decimal): 8
+W (5173) LAB_HANDSHAKE_IP:   -> Reason Code (Hex)    : 0x08
+W (5173) LAB_HANDSHAKE_IP:   -> Reason Diagnosis     : OTHER_DISCONNECT_REASON
+W (5183) LAB_HANDSHAKE_IP: =======================================================
+I (5193) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (5223) wifi:flush txq
+I (5223) wifi:stop sw txq
+I (5223) wifi:lmac stop hw txq
+I (5223) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (5243) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (5243) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_start()
+I (5253) wifi:mode : sta (88:57:21:ae:50:a0)
+I (5253) wifi:enable tsf
+I (5253) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (5263) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (5263) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (5273) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_connect()
+I (5283) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (5543) LAB_HANDSHAKE_IP: [RESULT]: TEST FAILED - Disconnected during Handshake or Auth.
+I (5543) LAB_HANDSHAKE_IP: ==================================================================
+I (5553) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0
+I (5563) wifi:state: init -> auth (0xb0)
+I (5563) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (5563) LAB_HANDSHAKE_IP:   [Phase 4 & Phase 5 Completed: Wi-Fi Handshake & IP Lab Finished]
+I (5573) LAB_HANDSHAKE_IP: ==================================================================
+I (5583) main_task: Returned from app_main()
+I (5603) wifi:state: auth -> assoc (0x0)
+I (5633) wifi:state: assoc -> run (0x10)
+I (5713) wifi:state: run -> init (0x2c0)
+W (5733) LAB_HANDSHAKE_IP: =======================================================
+W (5733) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (5733) LAB_HANDSHAKE_IP:   -> Target SSID          : น้องสไปร์ท
+W (5743) LAB_HANDSHAKE_IP:   -> Reason Code (Decimal): 2
+W (5743) LAB_HANDSHAKE_IP:   -> Reason Code (Hex)    : 0x02
+W (5753) LAB_HANDSHAKE_IP:   -> Reason Diagnosis     : WIFI_REASON_AUTH_EXPIRE (2)
+W (5763) LAB_HANDSHAKE_IP: =======================================================
+```
 ## 6. ตารางบันทึกผลการทดลอง (Experiment Results)
 
 ให้นักศึกษาบันทึกผลลัพธ์จากการสังเกตใน Serial Console ลงในตารางต่อไปนี้:
 
 ### 6.1 ตารางสรุปเปรียบเทียบผลการทดลองใน Handshake & IP Phase
-
-| ข้อการทดลอง | สถานการณ์ทดสอบ | Event `WIFI_EVENT_STA_CONNECTED` (เกิด/ไม่เกิด) | Event `IP_EVENT_STA_GOT_IP` (เกิด/ไม่เกิด) | ผลการทดลอง | Disconnect Reason Code (ถ้ามี) |
+ 
+| ข้อการทดลอง | สถานการณ์ทดสอบ | Event WIFI_EVENT_STA_CONNECTED | Event IP_EVENT_STA_GOT_IP | ผลการทดลอง | Disconnect Reason Code (ถ้ามี) |
 | :---: | :--- | :---: | :---: | :---: | :--- |
-| **5.4.1** | Password ถูกต้อง | | | | |
-| **5.4.2** | Password ผิด | | | | |
-
+| **5.4.1** | Password ถูกต้อง | เกิดขึ้น | เกิดขึ้น | สำเร็จ (Passed) | - |
+| **5.4.2** | Password ผิด | เกิดขึ้น* | ไม่เกิด | ล้มเหลว (Failed) | 2 / 0x02 (`WIFI_REASON_AUTH_EXPIRE`)** |
 ### 6.2 บันทึกข้อมูล IP Network จาก Event `IP_EVENT_STA_GOT_IP` (ข้อ 5.4.1)
 
 | พารามิเตอร์ Network Layer | ค่าที่จัดสรรได้จริงจาก DHCP Server |
-| :--- | :--- |
-| **IP Address** | |
-| **Subnet Mask** | |
-| **Default Gateway** | |
+| :------------------------ | :--------------------------------- |
+| **IP Address**            | `172.20.10.2`                      |
+| **Subnet Mask**           | `255.255.255.240`                  |
+| **Default Gateway**       | `172.20.10.1`                      |
 
 ---
 
 ## 7. คำถามท้ายการทดลอง (Post-Lab Questions)
 
 1. เหตุใดกระบวนการ **4-Way Handshake** จึงพิสูจน์ทราบรหัสผ่าน Wi-Fi ได้โดยไม่ต้องส่งรหัสผ่าน (Passphrase) ลอยไปในอากาศเลยแม้แต่แพ็กเกจเดียว?
+ช้หลักการ **Zero-Knowledge Proof** โดยนำ Password ไปแปลงเป็นคีย์ลับล่วงหน้า แล้วใช้ **ส่งค่าสุ่ม (Nonce)** เพื่อคำนวณแลกเปลี่ยนค่าตรวจสอบความถูกต้อง **MIC (Message Integrity Code)** หาก MIC ตรงกันแสดงว่ามี Password เดียวกัน โดยไม่ต้องส่ง Password จริงผ่านคลื่นวิทยุ
+
 2. อธิบายบทบาทและที่มาของคีย์ **PMK (Pairwise Master Key)** และ **PTK (Pairwise Transient Key)** ว่ามีความสัมพันธ์กันอย่างไรในการเข้ารหัสเฟรมข้อมูล?
+- **PMK (Pairwise Master Key):** คีย์แม่บทคงที่ ได้จากการนำ Passphrase + SSID ไปแฮช (PBKDF2) ทำหน้าที่เป็นคีย์ตั้งต้นเพื่อใช้สร้าง PTK
+- **PTK (Pairwise Transient Key):** คีย์ใช้งานชั่วคราว ได้จากการนำ **PMK + Nonces + MAC Address** มาผสมกัน นำไปแบ่งย่อยเพื่อ **เข้ารหัส/ถอดรหัสแพ็กเกจข้อมูลจริง (Layer 2)**
+- **ความสัมพันธ์:** $\text{PMK (คีย์แม่บท)} \xrightarrow{+\text{Nonces / MAC}} \text{PTK (คีย์เข้ารหัสข้อมูล)}$
+
 3. เหตุใดเมื่อเราพิมพ์ Password ผิด (ข้อ 5.4.2) ESP32 จึงยังคงได้รับ Event **`WIFI_EVENT_STA_CONNECTED`** ก่อนที่จะเกิด Event **`WIFI_EVENT_STA_DISCONNECTED`** ตามมาในภายหลัง?
+เพราะ **Phase 2 (Auth)** และ **Phase 3 (Assoc)** เป็นเพียงการจับคู่ฮาร์ดแวร์และตกลงพารามิเตอร์คลื่นวิทยุ เมื่อผ่าน Phase 3 ไดรเวอร์จะแจ้ง `WIFI_EVENT_STA_CONNECTED` ทันที แต่การตรวจสอบ Password เพิ่งจะเริ่มใน **Phase 4 (4-Way Handshake)** เมื่อตรวจแล้วพบว่ารหัสผิด AP จึงส่งคำสั่งตัดการเชื่อมต่อ (`WIFI_EVENT_STA_DISCONNECTED`) ตามมาทีหลัง
+
 4. หากเครือข่าย Wi-Fi ไม่มี DHCP Server (ไม่มีการแจก IP อัตโนมัติ) ผลการทดลองในข้อ 5.4.1 จะหยุดอยู่ที่ขั้นตอนใด และจะไม่เกิด Event ใดขึ้น?
+- **หยุดที่ขั้นตอน:** สิ้นสุด **Phase 4 (4-Way Handshake)** (เชื่อมต่อ Layer 2 สำเร็จ แต่ค้างในขั้นตอนขอ IP Layer 3)
+- **จะไม่เกิด Event:** **`IP_EVENT_STA_GOT_IP`**
